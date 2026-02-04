@@ -11,9 +11,11 @@ class HTMLNode:
         raise NotImplementedError("Not yet implemented")
     
     def props_to_html(self):
+        if not self.props:
+            return ""
         props_out = ""
-        for prop in self.props:
-            props_out += f" {prop}={self.props[prop]}"
+        for prop, value in self.props.items():
+            props_out += f' {prop}="{value}"'
         return props_out
             
     def __eq__(self,other):

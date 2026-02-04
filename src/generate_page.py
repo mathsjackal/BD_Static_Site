@@ -26,10 +26,7 @@ def generate_page(from_path, template_path, dest_path, basepath):
 
 
     page_html = page_html.replace('href="/', f'href="{basepath}')
-    page_html = page_html.replace('href=/', f'href="{basepath}')
-
     page_html = page_html.replace('src="/', f'src="{basepath}')
-    page_html = page_html.replace('src=/', f'src="{basepath}')
 
 
 
