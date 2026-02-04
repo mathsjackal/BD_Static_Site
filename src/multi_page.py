@@ -3,7 +3,7 @@ import os
 from generate_page import generate_page
 
 
-def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
+def generate_pages_recursive(dir_path_content, template_path, dest_dir_path, basepath):
     
     if not os.path.exists(dest_dir_path):
         os.makedirs(dest_dir_path)
@@ -16,7 +16,8 @@ def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
             generate_pages_recursive(
                 entry_path,
                 template_path,
-                dest_entry_path
+                dest_entry_path,
+                basepath
             )
         
         elif entry.endswith(".md"):
@@ -26,5 +27,6 @@ def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
             generate_page(
                 entry_path,
                 template_path,
-                dest_file_path
+                dest_file_path,
+                basepath
             )
