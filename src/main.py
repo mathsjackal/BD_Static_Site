@@ -9,9 +9,9 @@ from multi_page import generate_pages_recursive
 
 dir_path_static = "./static"
 dir_path_docs = "./docs"
-#content_index = "./content/index.md"
-#template_file = "./template.html"
-#output_index = "./public/index.html"
+content_index = "./content/index.md"
+template_file = "./template.html"
+output_index = "./docs/index.html"
 
 def main():
     if len(sys.argv) > 1:
