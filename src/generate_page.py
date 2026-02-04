@@ -32,3 +32,5 @@ def generate_page(from_path, template_path, dest_path, basepath):
 
     with open(dest_path, "w", encoding="utf-8") as f:
         f.write(page_html + "\n")
+
+#
