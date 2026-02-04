@@ -3,12 +3,12 @@ from pathlib import Path
 from block_to_html import markdown_to_html_node
 from extract_title import extract_title
 from htmlnode import *
-import re
+
 
 def generate_page(from_path, template_path, dest_path, basepath):
     # Print a status message
-    print(f"Generating page from {from_path} to {dest_path} using {template_path}")
-
+    #print(f"Generating page from {from_path} to {dest_path} using {template_path}")
+    print("generate_page:", from_path, "->", dest_path, "basepath:", repr(basepath))
     with open(from_path, "r") as f:
         markdown = f.read()
     
@@ -24,9 +24,12 @@ def generate_page(from_path, template_path, dest_path, basepath):
     page_html = template.replace("{{ Title }}", title)
     page_html = page_html.replace("{{ Content }}", content_html)
 
-    # Use re.sub instead of str.replace
-    page_html = re.sub(r'href="/?', f'href="{basepath}', page_html)
-    page_html = re.sub(r'src="/?', f'src="{basepath}', page_html)
+
+    page_html = page_html.replace('href="/', f'href="{basepath}')
+    page_html = page_html.replace('href=/', f'href="{basepath}')
+
+    page_html = page_html.replace('src="/', f'src="{basepath}')
+    page_html = page_html.replace('src=/', f'src="{basepath}')
 
 
 
